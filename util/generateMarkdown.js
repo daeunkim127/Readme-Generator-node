@@ -4,7 +4,8 @@ function renderLicenseBadge(license) {
     if (!license) {
         let badge =''
     } else {
-        badge= `https://img.shields.io/badge/license-${license}-brightgreen)`
+        const licenseRevised=license.split('-')
+        badge= `https://img.shields.io/badge/license-`+licenseRevised[0]+`-brightgreen`
     }
 }
 
@@ -51,7 +52,7 @@ function generateMarkdown(data) {
     ${data.installation}
 
     ## Usage
-    ${data.usage}
+    ${data.usageInfo}
 
     ## License
     ${section}
