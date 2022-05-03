@@ -2,6 +2,7 @@
 const fs = require ('fs');
 const util = require('util');
 const inquirer = require('inquirer');
+const generateMarkdown = require('./util/generateMarkdown.js');
 
 //array of questions for user input
 const questions = [
@@ -29,7 +30,7 @@ const questions = [
         type: 'list',
         name: 'license',
         message: 'What is the license?',
-        choices: ['a','b','c']
+        choices: ['GNU','Mozilla','Apache', 'MIT', 'Boost','Unlicense']
     },
     {
         type: 'input',
@@ -56,48 +57,11 @@ const questions = [
 // function to write README file
 function writeToFile() {
     return inquirer.prompt(questions)
-    .then((answers) => {
-        //readme file layout
-        let readMeCreate =  `
-        # ${answers.title}
-        
-        ![badge](https://img.shields.io/badge/license-${answers.license}-brightgreen)
-       
-        ## Table of Contents
-        - [Description](#description)
-        - [Installation](#installation)
-        - [Usage](#usage)
-        - [License](#license)
-        - [Contribution](#contribution)
-        - [Tests](#tests)
-        - [Questions](#questions)
-        
-        ## Description
-        ${answers.description}
-        
-        ## Installation
-        ${answers.installation}
-       
-        ## Usage
-        ${answers.usage}
-       
-        ## License
-        ![badge](https://img.shields.io/badge/license-${answers.license}-brightgreen)
-        
-        ${answers.license} license. 
-        
-        ## Contribution
-        ${answers.contribution}
-        
-        ## Tests
-        ${answers.tests}
-        
-        ## Questions
-        GitHub: [${answers.gitHubUsername}](https://github.com/${answers.gitHubUsername})
-        Email me with any questions: ${answers.email}`
-    
-    fs.writeFileSync('README.md', readMeCreate, (err) => err ? console.log(err) : console.log('Readme file successfully created!'))
-});
+    .then((data) => {
+        generateMarkdown.renderLicenseBadge(data.license);
+        generateMarkdown.renderLicenseLink(data.license);
+        generateMarkdown.renderLicenseSection(data.license)
+        fs.writeFileSync('README.md', generateMarkdown.generateMarkdown(data), (err) => err ? console.log(err) : console.log('Readme file successfully created!'))});
 };
 
 // function to initialize app
