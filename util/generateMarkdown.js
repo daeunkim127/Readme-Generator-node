@@ -67,7 +67,7 @@ ${data.tests}
 
 ## Questions
 GitHub: [${data.gitHubUsername}](https://github.com/${data.gitHubUsername})
-Email me with any questions: ${data.email}
+Email me with any questions: [${data.email}](#)
 `;
 }
 
