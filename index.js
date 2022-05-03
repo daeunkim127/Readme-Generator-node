@@ -61,7 +61,7 @@ function writeToFile() {
         generateMarkdown.renderLicenseBadge(data.license);
         generateMarkdown.renderLicenseLink(data.license);
         generateMarkdown.renderLicenseSection(data.license)
-        fs.writeFileSync('Example-README.md', generateMarkdown.generateMarkdown(data), (err) => err ? console.log(err) : console.log('Readme file successfully created!'))});
+        fs.writeFileSync('README.md', generateMarkdown.generateMarkdown(data), (err) => err ? console.log(err) : console.log('Readme file successfully created!'))});
 };
 
 // function to initialize app

@@ -25,49 +25,49 @@ function renderLicenseSection(license) {
     if(!license) {
         let section='';
     } else {
-        section=`[![License]${badge}](${link})`
+        section=`[![License](${badge})](${link})`
     }
 }
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   return `
-    # ${data.title}
-    ${section}
+# ${data.title}
+${section}
        
-    ## Description
-    ${data.description}
+## Description
+${data.description}
 
-    ## Table of Contents
-    - [Description](#description)
-    - [Installation](#installation)
-    - [Usage](#usage)
-    - [License](#license)
-    - [Contribution](#contribution)
-    - [Tests](#tests)
-    - [Questions](#questions)
+## Table of Contents
+- [Description](#description)
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+- [Contribution](#contribution)
+- [Tests](#tests)
+- [Questions](#questions)
 
-    ## Installation
-    Steps required to install project.
-    ${data.installation}
+## Installation
+Steps required to install project.
+${data.installation}
 
-    ## Usage
-    ${data.usageInfo}
+## Usage
+${data.usageInfo}
 
-    ## License
-    ${section}
+## License
+${section}
 
-    This project is covered under the ${data.license} license. 
+This project is covered under the ${data.license} license. 
 
-    ## Contribution
-    ${data.contribution}
+## Contribution
+${data.contribution}
 
-    ## Tests
-    ${data.tests}
+## Tests
+${data.tests}
 
-    ## Questions
-    GitHub: [${data.gitHubUsername}](https://github.com/${data.gitHubUsername})
-    Email me with any questions: ${data.email}
+## Questions
+GitHub: [${data.gitHubUsername}](https://github.com/${data.gitHubUsername})
+Email me with any questions: ${data.email}
 `;
 }
 
