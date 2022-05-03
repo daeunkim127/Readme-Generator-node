@@ -1,0 +1,23 @@
+{
+  "name": "readme-generator-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daeunkim127/Readme-Generator-node.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/daeunkim127/Readme-Generator-node/issues"
+  },
+  "homepage": "https://github.com/daeunkim127/Readme-Generator-node#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4"
+  }
+}
