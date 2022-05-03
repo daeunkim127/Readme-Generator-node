@@ -1,4 +1,4 @@
-#README.md GENERATOR
+# README.md GENERATOR
 
 ## Description
 An application that uses user input to create README.md file.
